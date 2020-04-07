@@ -4,7 +4,7 @@
 #' @return A dropdown menu that can be passed to \code{\link[semantic.dashboard]{dashboardHeader}}
 #' @export
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' dropdownMenuOutput("dropdown")
 #'
 #' output$dropdown <- renderDropdownMenu({
@@ -28,7 +28,7 @@ dropdownMenuOutput <- dropdown_menu_output
 #' @return A dynamic dropdown menu that can be assigned to output.
 #' @export
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' dropdownMenuOutput("dropdown")
 #'
 #' output$dropdown <- renderDropdownMenu({

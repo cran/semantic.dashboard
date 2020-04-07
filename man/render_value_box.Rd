@@ -33,7 +33,7 @@ Server-side function for dynamic valueBox.
 }}
 
 \examples{
-\donttest{
+\dontrun{
 valueBoxOutput("value_box")
 
 output$value_box <- renderValueBox({

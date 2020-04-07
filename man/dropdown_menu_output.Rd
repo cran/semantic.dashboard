@@ -24,7 +24,7 @@ UI-side function for dynamic dropdownMenu.
 }}
 
 \examples{
-\donttest{
+\dontrun{
 dropdownMenuOutput("dropdown")
 
 output$dropdown <- renderDropdownMenu({
