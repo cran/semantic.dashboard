@@ -7,24 +7,50 @@
 \usage{
 dashboard_header(
   ...,
+  left = NULL,
+  center = NULL,
+  right = NULL,
+  title = NULL,
+  titleWidth = "thin",
   logo_align = "center",
   logo_path = "",
   color = "",
   inverted = FALSE,
-  disable = FALSE
+  disable = FALSE,
+  show_menu_button = TRUE,
+  menu_button_label = "Menu",
+  class = ""
 )
 
 dashboardHeader(
   ...,
+  left = NULL,
+  center = NULL,
+  right = NULL,
+  title = NULL,
+  titleWidth = "thin",
   logo_align = "center",
   logo_path = "",
   color = "",
   inverted = FALSE,
-  disable = FALSE
+  disable = FALSE,
+  show_menu_button = TRUE,
+  menu_button_label = "Menu",
+  class = ""
 )
 }
 \arguments{
-\item{...}{UI elements to include within the header.}
+\item{...}{UI elements to include within the header. They will be displayed on the right side.}
+
+\item{left}{UI element to put on the left of the header. It will be placed after (to the right) the title and menu button (if they exist).}
+
+\item{center}{UI element to put in the center of the header.}
+
+\item{right}{UI element to put to the right of the header. It will be placed before elements defined in \code{...} (if there are any).}
+
+\item{title}{Dashboard title to be displayed in the upper left corner. If NULL, will not display any title field. Use "" for an empty title.}
+
+\item{titleWidth}{Title field width, one of \code{c(NULL, "very thin", "thin", "wide", "very wide")}}
 
 \item{logo_align}{Where should logo be placed. One of \code{c("left", "center")}}
 
@@ -37,12 +63,19 @@ One of \code{c("", "red", "orange", "yellow", "olive", "green", "teal", "blue", 
 If TRUE text will be white and background will be colored. Default is \code{FALSE}.}
 
 \item{disable}{If \code{TRUE}, don't display the header.}
+
+\item{show_menu_button}{If \code{FALSE}, don't display the menu button. Default is \code{TRUE}.}
+
+\item{menu_button_label}{Text of the menu button. Default is \code{"Menu"}.}
+
+\item{class}{CSS class to be applied to the container of \code{dashboardHeader}.}
 }
 \value{
 A header that can be passed to \code{\link[semantic.dashboard]{dashboardPage}}
 }
 \description{
 Create a header of a dashboard with other additional UI elements.
+             Hint: use \code{shiny::tagList()} if you want to add multiple elements in \code{left} / \code{center} or \code{right}.
 }
 \section{Functions}{
 \itemize{
@@ -50,13 +83,13 @@ Create a header of a dashboard with other additional UI elements.
 }}
 
 \examples{
-if(interactive()){
+if(interactive()) {
 
   library(shiny)
   library(semantic.dashboard)
 
   ui <- dashboardPage(
-    dashboardHeader(color = "blue"),
+    dashboardHeader(color = "blue", inverted = TRUE),
     dashboardSidebar(side = "left", size = "thin", color = "teal",
                      sidebarMenu(
                        menuItem(tabName = "tab1", "Tab 1"),
